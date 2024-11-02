@@ -92,15 +92,18 @@ def dose(needs):
 #3.2  
 
     output_list = []
-    vitamins = 0
-    injections = 0
+    #vitamins = 0
+    #injections = 0 
+    # <- Should not put vitamins and injections = 0 in this line, because if next value is 0 (the previous value of injections won't be 0 but the previous value), will lead to error)
     #attribute = 0
     for attribute in needs:
+        vitamins = 0
+        injections = 0
         vitamins = attribute // 10
-        if attribute %10 != 0:
+        if attribute % 10 != 0:
             vitamins += 1
             injections = vitamins * 10 - attribute
-            output_list.append((vitamins, injections))
+        output_list.append((vitamins, injections))
     
     return output_list
     #YOUR SOLUTION ENDS HERE
